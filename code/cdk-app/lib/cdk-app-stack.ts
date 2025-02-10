@@ -14,12 +14,12 @@ export class CdkAppStack extends cdk.Stack {
     // JSONファイルパス
     const filePath = path.join(`${__dirname}`, "./json/test-policy.json");
 
-    // JSON文字列をJavaScriptオブジェクトに変換
-    const jsonData = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    // JSONファイルをJSON文字列として読み込み
+    const jsonData = fs.readFileSync(filePath, "utf8");
 
-    // 文字列置換
+    // 文字列置換&JSONパース(JavaScriptオブジェクトに変換)
     const jsonPolicy = JSON.parse(
-      JSON.stringify(jsonData)
+      jsonData
         .replace(/{Partition}/g, pseudo.partition)
         .replace(/{Region}/g, pseudo.region)
         .replace(/{Account}/g, pseudo.accountId)
