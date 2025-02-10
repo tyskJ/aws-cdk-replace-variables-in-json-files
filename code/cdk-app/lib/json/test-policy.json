@@ -1,0 +1,11 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TestPolicy",
+      "Effect": "Allow",
+      "Action": ["ec2:StartInstances"],
+      "Resource": ["arn:{Partition}:ec2:{Region}:{Account}:instance/*"]
+    }
+  ]
+}
